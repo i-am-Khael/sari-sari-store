@@ -1,0 +1,57 @@
+
+:root {
+  --default-font: sans-serif;
+  --error: #fb2c36;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: var(--default-font);
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1.6rem;
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+a, li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.container {
+  width: 80%;
+  max-width: 1900px;
+  margin-inline: auto;
+}
+
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+
+  span {
+    color: var(--error);
+  }
+}
+

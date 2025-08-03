@@ -1,0 +1,26 @@
+
+nav {
+  width: 100%;
+  padding-block: 1rem;
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  a:hover {
+    color: #333 !important;
+  } 
+}
+
+.active {
+  color: #333 !important;
+}
