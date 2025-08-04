@@ -1,4 +1,3 @@
-
-@use "_mixins.scss";
-@use "_reset.scss";
-@use "_nav.scss";
+@forward './_mixin.scss';
+@forward './_reset.scss';
+@forward './_nav.scss';

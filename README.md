@@ -7,7 +7,7 @@
 - Linux ( Debian 12 ) Operating System
 - [VSCodium for my Text Editor](https://vscodium.com)
 - Homebrew / Linuxbrew ( for installing PHP and MySQL )
-- Vanilla PHP
+- Vanilla PHP 8.4
 - Vanilla Javascript
 - SASS / CSS
 - MySQL

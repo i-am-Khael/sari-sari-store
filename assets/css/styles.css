@@ -1,5 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 :root {
   --default-font: sans-serif;
+  --lato: "Lato";
+  --kaushanScript: "Kaushan Script", cursive;
   --error: #fb2c36;
 }
 
@@ -15,7 +19,7 @@ html, body {
 }
 
 body {
-  font-family: var(--default-font);
+  font-family: var(--lato), var(--default-font);
 }
 
 main {
@@ -61,6 +65,17 @@ nav .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+nav .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .logo {
+  font-size: 1.6rem;
+}
+nav h1 {
+  font-family: var(--kaushanScript);
 }
 
 .links {

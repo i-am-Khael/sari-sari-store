@@ -1,12 +1,23 @@
+@use "_mixin" as mixin;
 
 nav {
   width: 100%;
   padding-block: 1rem;
   
   .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include mixin.center-between;
+  }
+
+  .logo-container {
+    @include mixin.center-center;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+  
+  h1 {
+    font-family: var(--kaushanScript);
   }
 }
 
