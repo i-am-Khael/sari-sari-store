@@ -12,3 +12,4 @@
 - SASS / CSS
 - MySQL
 - [Hack Programming Language - developed by Facebook / Meta](https://hacklang.org)
+- [Color Scheme](https://coolors.co/095256-087f8c-5aaa95-86a873-bb9f06)

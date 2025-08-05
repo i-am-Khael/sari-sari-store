@@ -1,8 +1,14 @@
 @use "_mixin" as mixin;
 
 nav {
+  top: 0;
   width: 100%;
   padding-block: 1rem;
+  background: var(--default-bg-blur);
+  border-bottom: 1px solid var(--default-border-blur);
+  position: sticky;
+  backdrop-filter: var(--default-backdrop);
+  z-index: 99;
   
   .container {
     @include mixin.center-between;
@@ -27,11 +33,7 @@ nav {
   justify-content: center;
   gap: 1.5rem;
 
-  a:hover {
-    color: #333 !important;
+ .active,  a:hover {
+    color: var(--secondary-text-color);
   } 
-}
-
-.active {
-  color: #333 !important;
 }
