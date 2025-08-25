@@ -1,6 +1,6 @@
 
 # Sari Sari Store
-- this project of mine is undeder development
+- this project of mine is under development
 - started date: August 03, 2025
 
 ### Tech Used ( currently )
