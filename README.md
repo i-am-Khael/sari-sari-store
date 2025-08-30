@@ -2,6 +2,7 @@
 # Sari Sari Store
 - this project of mine is under development
 - started date: August 03, 2025
+- temporarily abandon due to work
 
 ### Tech Used ( currently )
 - Linux ( Debian 12 ) Operating System
