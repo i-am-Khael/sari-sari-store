@@ -11,4 +11,5 @@
 - Vanilla PHP 8.4
 - Vanilla Javascript ES6
 - Vanilla CSS
+- [Hack Programming Language by Facebook/Meta](https://hacklang.org/)
 - [Color Scheme](https://coolors.co/095256-087f8c-5aaa95-86a873-bb9f06)
