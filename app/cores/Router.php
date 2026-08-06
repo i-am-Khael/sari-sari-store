@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 namespace Cores;
 
 class Router {
@@ -36,17 +35,19 @@ class Router {
       [$class, $method] = $action;
 
       if (class_exists($class)) {
-        $class = new $class();
-        if (method_exists($class, $method)) return call_user_func_array([$class, $method], []);
-      }
 
+        $class = new $class();
+
+        if (method_exists($class, $method)) return call_user_func_array([$class, $method], []);
+
+      }
     }
 
   }
 
 
   public function pageNotFound() {
-    include_once dirname(__DIR__) . '/views/_404.php';
+    include_once VIEW_PATH . '_404.php';
   }
 
 }
