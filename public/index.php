@@ -12,8 +12,10 @@
   $router = new Cores\Router();
   $router
     ->get('/', [Controllers\Home::class, 'index'])
+    ->get('/register', [Controllers\Register::class, 'index'])
+    ->post('/register', [Controllers\Register::class, 'store'])
     ->get('/login', [Controllers\Login::class, 'index'])
-    ->post('/login', [Controllers\Login::class, 'auth'])
+    ->post('/login', [Controllers\Login::class, 'read'])
     ->get('/profile', [Controllers\User\Profile::class, 'index'])
     ->get('/dashboard', [Controllers\Admin\Dashboard::class, 'index']);
 

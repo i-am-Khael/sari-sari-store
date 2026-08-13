@@ -31,6 +31,7 @@ class View {
     include_once VIEW_PATH . 'partials/_start_tag.php';
     include_once VIEW_PATH . 'partials/nav.php';
     include_once $viewPath;
+    include_once VIEW_PATH . 'partials/footer.php';
     include_once VIEW_PATH . 'partials/_end_tag.php';
 
     return (string) ob_get_clean();

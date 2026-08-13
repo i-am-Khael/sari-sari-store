@@ -9,6 +9,7 @@
 
     <ul>
       <li>
+        <a href="/register" class="<?= $_SERVER['REQUEST_URI'] === '/register' ? 'isActive' : '' ?>" >Register</a>
         <a href="/login" class="<?= $_SERVER['REQUEST_URI'] === '/login' ? 'isActive' : '' ?>" >Login</a>
       </li>
     </ul>

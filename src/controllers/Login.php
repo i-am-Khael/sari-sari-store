@@ -12,14 +12,7 @@ class Login {
     return View::make('login');
   }
 
-  public function auth() :View {
-
-    $data = [
-      "username" => $_POST['username']
-    ];
-
-    return View::make('login', $data);
-
+  public function read() :View {
   }
 
 
