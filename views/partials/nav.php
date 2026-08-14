@@ -2,7 +2,7 @@
 <header>
   <nav class="container">
 
-    <a href="/" class="<?= $_SERVER['REQUEST_URI'] === '/' ? 'isActive' : '' ?>">
+    <a href="/">
       <span><i class="fa-solid fa-sign-hanging"></i></span>
       <span>Sari Sari Store</span>
     </a>

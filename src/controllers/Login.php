@@ -13,6 +13,7 @@ class Login {
   }
 
   public function read() :View {
+    return View::make('login');
   }
 
 

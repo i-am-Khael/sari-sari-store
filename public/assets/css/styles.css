@@ -83,7 +83,7 @@ header {
     color: var(--accent-color-4);
   }
 
-  a:hover {
+  li > a:hover {
     color: var(--accent-color-4);
   }
 

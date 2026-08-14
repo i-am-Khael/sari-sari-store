@@ -4,13 +4,12 @@
 
   namespace Controllers\User;
   use Cores\View;
-  use Models\Auth;
+  use Cores\Validate;
 
   class Profile {
 
     public function __construct() {
-      $auth = new Auth();
-      if (!$auth->isAuthenticated) header('Location: /login');
+      if (!(new Validate())->isAuthenticated) header('Location: /login');
     }
 
     public function index() : View {

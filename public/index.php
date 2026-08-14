@@ -13,10 +13,14 @@
   $router
     ->get('/', [Controllers\Home::class, 'index'])
     ->get('/register', [Controllers\Register::class, 'index'])
-    ->post('/register', [Controllers\Register::class, 'store'])
+    ->post('/register', [Controllers\Register::class, 'create'])
     ->get('/login', [Controllers\Login::class, 'index'])
     ->post('/login', [Controllers\Login::class, 'read'])
+
+    // commom user
     ->get('/profile', [Controllers\User\Profile::class, 'index'])
+
+    // admin user
     ->get('/dashboard', [Controllers\Admin\Dashboard::class, 'index']);
 
   $router->resolveRoutes($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
