@@ -4,29 +4,32 @@
   namespace Controllers;
   use Cores\View;
   use Cores\Validate;
-  use Models\Register as RegisterModel;
+  use Models\Register as RM;
 
   class Register {
 
-    public function index() :View {
-      return View::make('register');
+    public function index($params = []) :View {
+      return View::make('register', $params);
     }
 
     public function create() {
 
-      $rm = new RegisterModel();
+      $firstName = (new Validate())->sanitizeInput($_POST['firstName']);
+      $lastName = (new Validate())->sanitizeInput($_POST['lastName']);
+      $email = (new Validate())->sanitizeInput($_POST['email'], 'email');
+      $username = (new Validate())->sanitizeInput($_POST['username'], 'username');
+      $password = (new Validate())->sanitizeInput($_POST['password'], 'password');
 
-      $firstName = Validate::sanitizeInput($_POST['firstName']);
-      $lastName = Validate::sanitizeInput($_POST['lastName']);
-      $email = Validate::sanitizeInput($_POST['email'], 'email');
-      $username = Validate::sanitizeInput($_POST['username']);
-      $password = Validate::sanitizeInput($_POST['password']);
+      $errors = [];
 
-      $result = $rm->store([$firstName, $lastName, $email, $username, $password]);
+      if (!$email['ok']) $errors['email'] = $email['error'];
+      if (!$username['ok']) $errors['username'] = $username['error'];
+      if (!$password['ok']) $errors['password'] = $password['error'];
 
-      if ($result) {
-        var_dump('test created successfully!');
-      }
+      if(!empty($errors)) return $this->index($errors);
+
+      $result = (new RM())->store([$firstName, $lastName, $email['value'], $username['value'], $password['value']]);
+      if ($result) header('Location: login');
 
     }
 

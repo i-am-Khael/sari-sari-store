@@ -17,17 +17,29 @@
 
       <div class="text-input">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
+        <input
+          class="<?php if($email ?? '') echo 'input-error' ?>"
+          type="email" name="email" id="email" required
+        >
+        <small><?= $email ?? '' ?></small>
       </div>
 
       <div class="text-input">
         <label for="username">Username</label>
-        <input type="text" name="username" id="username" required>
+        <input
+          class="<?php if($username ?? '') echo 'input-error' ?>"
+          type="text" name="username" id="username" required
+        >
+        <small><?= $username ?? '' ?></small>
       </div>
 
       <div class="text-input">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
+        <input
+          class="<?php if($password ?? '') echo 'input-error' ?>"
+          type="password" name="password" id="password" required
+        >
+        <small><?= $password ?? '' ?></small>
       </div>
 
       <button>Register</button>

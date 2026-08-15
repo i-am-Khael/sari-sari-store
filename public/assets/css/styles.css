@@ -48,6 +48,10 @@ button {
   text-transform: uppercase;
 }
 
+.input-error {
+  outline: .3rem solid var(--accent-color-1) !important;
+}
+
 /* reset end here */
 
 body {
