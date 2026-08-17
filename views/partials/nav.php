@@ -9,8 +9,13 @@
 
     <ul>
       <li>
-        <a href="/register" class="<?= $_SERVER['REQUEST_URI'] === '/register' ? 'isActive' : '' ?>" >Register</a>
-        <a href="/login" class="<?= $_SERVER['REQUEST_URI'] === '/login' ? 'isActive' : '' ?>" >Login</a>
+        <?php if(!empty($_SESSION)) : ?>
+          <a href="/logout">Logout</a>
+        <?php endif; ?>
+        <?php if(empty($_SESSION)) : ?>
+          <a href="/register" class="<?= $_SERVER['REQUEST_URI'] === '/register' ? 'isActive' : '' ?>" >Register</a>
+          <a href="/login" class="<?= $_SERVER['REQUEST_URI'] === '/login' ? 'isActive' : '' ?>" >Login</a>
+        <?php endif; ?>
       </li>
     </ul>
 

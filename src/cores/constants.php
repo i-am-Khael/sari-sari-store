@@ -5,3 +5,4 @@ define('USERNAME_EXISTS', 'Username already used.');
 define('EMAIL_ERROR', 'Invalid Email.');
 define('EMAIL_EXISTS', 'Email already used.');
 define('PASSWORD_ERROR', 'Invalid Password! Minimum of 8 characters from Aa-Zz, 0-9 and some special characters are only accepted.');
+define('LOGIN_FAILED', 'Login Failed!');

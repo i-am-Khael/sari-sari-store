@@ -36,7 +36,7 @@
       <div class="text-input">
         <label for="password">Password</label>
         <input
-          class="<?php if($password ?? '') echo 'input-error' ?>"
+          class="<? if($password ?? '') echo 'input-error' ?>"
           type="password" name="password" id="password" required
         >
         <small><?= $password ?? '' ?></small>

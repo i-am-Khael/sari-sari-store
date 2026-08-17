@@ -3,7 +3,7 @@
 
   namespace Controllers;
   use Cores\View;
-  use Cores\Validate;
+  use Cores\Helper;
   use Models\Register as RM;
 
   class Register {
@@ -14,11 +14,11 @@
 
     public function create() {
 
-      $firstName = (new Validate())->sanitizeInput($_POST['firstName']);
-      $lastName = (new Validate())->sanitizeInput($_POST['lastName']);
-      $email = (new Validate())->sanitizeInput($_POST['email'], 'email');
-      $username = (new Validate())->sanitizeInput($_POST['username'], 'username');
-      $password = (new Validate())->sanitizeInput($_POST['password'], 'password');
+      $firstName = Helper::sanitizeInput($_POST['firstName']);
+      $lastName = Helper::sanitizeInput($_POST['lastName']);
+      $email = Helper::sanitizeInput($_POST['email'], 'email');
+      $username = Helper::sanitizeInput($_POST['username'], 'username');
+      $password = Helper::sanitizeInput($_POST['password'], 'password');
 
       $errors = [];
 
@@ -28,7 +28,7 @@
 
       if(!empty($errors)) return $this->index($errors);
 
-      $result = (new RM())->store([$firstName, $lastName, $email['value'], $username['value'], $password['value']]);
+      $result = RM::store([$firstName, $lastName, $email['value'], $username['value'], $password['value']]);
       if ($result) header('Location: login');
 
     }

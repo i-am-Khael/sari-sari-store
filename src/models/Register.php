@@ -10,9 +10,9 @@
 
     use Database;
 
-    public function store(array $params): bool {
+    public static function store(array $params): bool {
       $query = 'INSERT INTO users(first_name, last_name, email, username, password) VALUES(?, ?, ?, ?, ?)';
-      return $this->create($query, $params);
+      return self::create($query, $params);
     }
 
 

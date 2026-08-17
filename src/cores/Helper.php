@@ -3,30 +3,26 @@
   declare(strict_types=1);
 
   namespace Cores;
-  use Traits\Database;
+  use Models\Helper as HM;
 
-  class Validate {
+  class Helper {
 
-    use Database;
-
-    public bool $isAuthenticated = false;
-
-    public function isAuthenticated(): bool {
-      return (bool) $this->read('SELECT id FROM users WHERE id = ?', [$_SESSION['user_id']]);
+    public static function isAuthenticated(): array|bool {
+      return HM::isAuthenticated();
     }
 
 
-    public function checkUser(string $username): bool {
-      return (bool) $this->read('SELECT username FROM users WHERE username = ?', [$username]);
+    public static function checkUser(string $username): bool {
+      return HM::checkUser($username);
     }
 
 
-    public function checkEmail(string $email): bool {
-      return (bool) $this->read('SELECT email FROM users WHERE email = ?', [$email]);
+    public static function checkEmail(string $email): bool {
+      return HM::checkEmail($email);
     }
 
 
-    public function sanitizeInput(string|int $value, string $type = ''): string|array {
+    public static function sanitizeInput(string|int $value, string $type = ''): string|array {
 
       $value = (string) $value;
       $value = stripslashes($value);
@@ -37,7 +33,7 @@
         case 'username':
               $username = strip_tags($value);
               if(!preg_match('/^[a-zA-Z\d]+$/', $username)) return [ 'ok' => false, 'error' => USERNAME_ERROR ];
-              if($this->checkUser($username)) return [ 'ok' => false, 'error' => USERNAME_EXISTS ];
+              if(self::checkUser($username)) return [ 'ok' => false, 'error' => USERNAME_EXISTS ];
               return [ 'ok' => true, 'value' => $username];
 
         case 'password':
@@ -48,7 +44,7 @@
         case 'email':
               $email = filter_var($value, FILTER_VALIDATE_EMAIL);
               if(!$email) return [ 'ok' => false, 'error' => EMAIL_ERROR ];
-              if($this->checkEmail($email)) return [ 'ok' => false, 'error' => EMAIL_EXISTS ];
+              if(self::checkEmail($email)) return [ 'ok' => false, 'error' => EMAIL_EXISTS ];
               return [ 'ok' => true, 'value' => $email];
 
         case 'number':

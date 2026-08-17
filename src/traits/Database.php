@@ -4,11 +4,11 @@
 
   trait Database {
 
-    private ?\PDO $conn = null;
+    private static ?\PDO $conn = null;
 
-    private function setConnection() :\PDO {
+    private static function setConnection() :\PDO {
 
-      if ($this->conn instanceof \PDO) return $this->conn;
+      if (self::$conn instanceof \PDO) return self::$conn;
 
       $dsn = 'mysql:host=127.0.0.1;dbname=sari_sari_store;charset=utf8mb4';
       $user = 'root';
@@ -21,8 +21,8 @@
 
       try {
 
-        $this->conn = new \PDO($dsn, $user, $password, $options);
-        return $this->conn;
+        self::$conn = new \PDO($dsn, $user, $password, $options);
+        return self::$conn;
 
       } catch (\PDOException $e) {
 
@@ -33,16 +33,16 @@
     }
 
 
-    protected function create(string $query, array $params): bool {
-      $stmt = $this->setConnection()->prepare($query);
+    protected static function create(string $query, array $params): bool {
+      $stmt = self::setConnection()->prepare($query);
       return $stmt->execute($params);
     }
 
 
-    protected function read(string $query, array $params = []): array {
-      $stmt = $this->setConnection()->prepare($query);
+    protected static function read(string $query, array $params = [], string $all = ''): array|bool {
+      $stmt = self::setConnection()->prepare($query);
       $stmt->execute($params);
-      return $stmt->fetchAll();
+      return $all === 'all' ? $stmt->fetchAll() : $stmt->fetch();
     }
 
 

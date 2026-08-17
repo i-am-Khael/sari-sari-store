@@ -4,16 +4,17 @@
 
   namespace Controllers\Admin;
   use Cores\View;
-  use Cores\Validate;
+  use Cores\Helper;
 
   class Dashboard {
 
     public function __construct() {
-      if (!(new Validate())->isAuthenticated) header('Location: /login');
+      if (Helper::isAuthenticated()['role'] !== 'administrator') header('Location: /login');
+      session_destroy();
     }
 
     public function index() : View {
-      return View::make('/user/profile');
+      return View::make('/admin/dashboard');
     }
 
   }
