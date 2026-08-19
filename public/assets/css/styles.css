@@ -52,6 +52,13 @@ button {
   outline: .3rem solid var(--accent-color-1) !important;
 }
 
+.error {
+  font-size: 1.1rem;
+  align-self: center;
+  color: var(--accent-color-1);
+}
+
+
 /* reset end here */
 
 body {

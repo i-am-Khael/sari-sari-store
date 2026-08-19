@@ -8,7 +8,7 @@
 
     use Database;
 
-    public static function getUser(array $params): array {
+    public static function getUser(array $params): array|bool {
       $query = "SELECT * FROM users WHERE username = ?";
       return self::read($query, $params);
     }

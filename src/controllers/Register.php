@@ -8,8 +8,12 @@
 
   class Register {
 
+    public function __construct() {
+      Helper::generateToken();
+    }
+
     public function index($params = []) :View {
-      return View::make('register', $params);
+      return View::make('register', [ 'csrf_token' => $_SESSION['csrf_token'], 'errors' => $params]);
     }
 
     public function create() {
@@ -22,6 +26,7 @@
 
       $errors = [];
 
+      if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) $errors['csrf_failed'] = REGISTRATION_FAILED;
       if (!$email['ok']) $errors['email'] = $email['error'];
       if (!$username['ok']) $errors['username'] = $username['error'];
       if (!$password['ok']) $errors['password'] = $password['error'];

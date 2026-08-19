@@ -9,7 +9,7 @@
   class Profile {
 
     public function __construct() {
-      if (Helper::isAuthenticated()['role'] !== 'user') header('Location: /login');
+      if (Helper::isAuthenticated()['role'] !== 'common') header('Location: /login');
     }
 
     public function index() : View {

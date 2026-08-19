@@ -5,9 +5,10 @@
     require_once $fullPath;
   });
 
+  use Cores\Helper;
   require_once dirname(__DIR__) . '/src/cores/constants.php';
 
-  session_start();
+  Helper::sessionStart();
 
   $router = new Cores\Router();
   $router

@@ -3,6 +3,12 @@
 
     <form action="/login" method="post" class="login-form">
 
+      <?php if($loginFailed) : ?>
+        <small class="error"><?= $loginFailed ?></small>
+      <?php endif; ?>
+
+      <input type="text" name="csrf_token" value="<?= htmlspecialchars($csrf_token ?? '', ENT_QUOTES, 'UTF-8')?>" hidden>
+
       <div class="text-input">
         <label for="username">Username</label>
         <input type="text" name="username" id="username" required>

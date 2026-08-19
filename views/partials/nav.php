@@ -1,4 +1,3 @@
-
 <header>
   <nav class="container">
 
@@ -9,10 +8,10 @@
 
     <ul>
       <li>
-        <?php if(!empty($_SESSION)) : ?>
+        <?php if(isset($_SESSION['user_id'])) : ?>
           <a href="/logout">Logout</a>
         <?php endif; ?>
-        <?php if(empty($_SESSION)) : ?>
+        <?php if(!isset($_SESSION['user_id'])) : ?>
           <a href="/register" class="<?= $_SERVER['REQUEST_URI'] === '/register' ? 'isActive' : '' ?>" >Register</a>
           <a href="/login" class="<?= $_SERVER['REQUEST_URI'] === '/login' ? 'isActive' : '' ?>" >Login</a>
         <?php endif; ?>

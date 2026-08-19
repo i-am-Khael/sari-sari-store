@@ -7,6 +7,27 @@
 
   class Helper {
 
+    public static function sessionStart() {
+      session_set_cookie_params(['secure' => true, 'httponly' => true, 'samesite' => 'Lax']);
+      session_start();
+    }
+
+
+    public static function generateToken() {
+      if(!isset($_SESSION['csrf_token'])) {
+       $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+      }
+    }
+
+
+    public static function setSession(array $data) {
+      session_regenerate_id(true);
+      $_SESSION['user_id'] = $data['id'];
+      $_SESSION['role'] = $data['role'];
+      $_SESSION['username'] = $data['username'];
+      $_SESSION['email'] = $data['email'];
+    }
+
     public static function isAuthenticated(): array|bool {
       return HM::isAuthenticated();
     }

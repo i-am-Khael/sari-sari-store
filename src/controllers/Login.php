@@ -9,8 +9,12 @@ use Models\Login as LM;
 
 class Login {
 
-  public function index() :View {
-    return View::make('login');
+  public function __construct() {
+    Helper::generateToken();
+  }
+
+  public function index(string $error = '') :View {
+    return View::make('login', ['csrf_token' => $_SESSION['csrf_token'], 'loginFailed' => $error]);
   }
 
   public function read(): string {
@@ -18,34 +22,28 @@ class Login {
     $username = Helper::sanitizeInput($_POST['username']);
     $password = Helper::sanitizeInput($_POST['password']);
 
+    if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token']))
+    return (string) $this->index(LOGIN_FAILED);
+
     $result = LM::getUser([$username]);
+
+    if (!$result) return (string) $this->index(LOGIN_FAILED);
 
     $pass = password_verify($password, $result['password']);
 
-    var_dump($result['role']);
-    var_dump($pass);
+    if ($pass && $result['role'] === 'common') {
 
-    if ($pass && $result['role'] === 'user') {
-
-      $_SESSION['user_id'] = $result['id'];
-      $_SESSION['role'] = $result['role'];
-      $_SESSION['username'] = $result['username'];
-      $_SESSION['email'] = $result['email'];
-
+      Helper::setSession($result);
       header('Location: profile');
 
     } elseif ($pass && $result['role'] === 'administrator') {
 
-      $_SESSION['user_id'] = $result['id'];
-      $_SESSION['role'] = $result['role'];
-      $_SESSION['username'] = $result['username'];
-      $_SESSION['email'] = $result['email'];
-
+      Helper::setSession($result);
       header('Location: dashboard');
 
     } else {
 
-      return LOGIN_FAILED;
+      return (string) $this->index(LOGIN_FAILED);
 
     }
 
