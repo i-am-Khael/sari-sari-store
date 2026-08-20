@@ -13,7 +13,7 @@
     }
 
 
-    public static function generateToken() {
+    public static function generateToken(): void {
       if(!isset($_SESSION['csrf_token'])) {
        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
       }
@@ -28,8 +28,11 @@
       $_SESSION['email'] = $data['email'];
     }
 
-    public static function isAuthenticated(): array|bool {
-      return HM::isAuthenticated();
+    public static function isAuthenticated(string $role): void {
+      if ($_SESSION['role'] !== $role) {
+        header('Location: /login');
+        session_destroy();
+      }
     }
 
 

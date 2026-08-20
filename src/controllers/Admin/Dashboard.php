@@ -9,12 +9,19 @@
   class Dashboard {
 
     public function __construct() {
-      if (Helper::isAuthenticated()['role'] !== 'administrator') header('Location: /login');
-      session_destroy();
+      Helper::isAuthenticated('administrator');
     }
 
     public function index() : View {
       return View::make('/admin/dashboard');
+    }
+
+    public function products() : View {
+      return View::make('/admin/products');
+    }
+
+    public function categories() : View {
+      return View::make('/admin/categories');
     }
 
   }

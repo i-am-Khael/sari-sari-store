@@ -1,6 +1,6 @@
+<?php if(!isset($_SESSION['role']) || $_SESSION['role'] === 'common') : ?>
 <header>
   <nav class="container">
-
     <a href="/">
       <span><i class="fa-solid fa-sign-hanging"></i></span>
       <span>Sari Sari Store</span>
@@ -17,6 +17,6 @@
         <?php endif; ?>
       </li>
     </ul>
-
   </nav>
 </header>
+<?php endif; ?>

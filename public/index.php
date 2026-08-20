@@ -23,6 +23,8 @@
     ->get('/profile', [Controllers\User\Profile::class, 'index'])
 
     // admin user
-    ->get('/dashboard', [Controllers\Admin\Dashboard::class, 'index']);
+    ->get('/dashboard', [Controllers\Admin\Dashboard::class, 'index'])
+    ->get('/dashboard/products', [Controllers\Admin\Dashboard::class, 'products'])
+    ->get('/dashboard/categories', [Controllers\Admin\Dashboard::class, 'categories']);
 
   $router->resolveRoutes($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
