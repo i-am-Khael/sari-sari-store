@@ -2,13 +2,14 @@
 
   declare(strict_types=1);
 
-  namespace Controllers;
+  namespace Controllers\Admin;
+  use Cores\View;
 
   class Categories {
 
 
-    public function add() {
-
+    public function add(): View {
+      return View::make('/admin/categories');
     }
 
 

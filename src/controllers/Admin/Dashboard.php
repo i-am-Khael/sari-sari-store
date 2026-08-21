@@ -12,16 +12,16 @@
       Helper::isAuthenticated('administrator');
     }
 
-    public function index() : View {
+    public function index(): View {
       return View::make('/admin/dashboard');
     }
 
-    public function products() : View {
+    public function products(): View {
       return View::make('/admin/products');
     }
 
-    public function categories() : View {
-      return View::make('/admin/categories');
+    public function categories(): View {
+      return View::make('/admin/categories', ['csrf_token' => $_SESSION['csrf_token']]);
     }
 
   }

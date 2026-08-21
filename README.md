@@ -1,6 +1,8 @@
 
 # Sari Sari Store
-- this project of mine is under development
+- this project of mine is under development, and this is not for production use
+- this is just a hobby project, building from scratch without AI
+- spending one to two hours per day/commit
 - started date: August 05, 2026
 
 ### Tech Used ( currently )
@@ -13,6 +15,8 @@
 - Vanilla Javascript ES6
 - Vanilla CSS
 - [Hack Programming Language by Facebook/Meta](https://hacklang.org/)
+- [Entity Relationship Diagram / Data Modeling](https://drawsql.app/teams/personal-project-workspace/diagrams/sari-sari-store)
+- [DataTable UI](https://datatables.net/)
 - [FontAwesomeIcons](https://fontawesome.com/icons)
 - [Color Scheme](https://coolors.co/080f0f-a4bab7-eff2c0-bea57d-a52422)
 - [Roboto Fonts from GoogleFonts](https://fonts.google.com/specimen/Roboto)

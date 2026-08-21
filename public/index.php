@@ -25,6 +25,7 @@
     // admin user
     ->get('/dashboard', [Controllers\Admin\Dashboard::class, 'index'])
     ->get('/dashboard/products', [Controllers\Admin\Dashboard::class, 'products'])
-    ->get('/dashboard/categories', [Controllers\Admin\Dashboard::class, 'categories']);
+    ->get('/dashboard/categories', [Controllers\Admin\Dashboard::class, 'categories'])
+    ->post('/dashboard/categories', [Controllers\Admin\Categories::class, 'add']);
 
   $router->resolveRoutes($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
