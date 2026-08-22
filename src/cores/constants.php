@@ -7,3 +7,5 @@ define('EMAIL_EXISTS', 'Email already used.');
 define('PASSWORD_ERROR', 'Invalid Password! Minimum of 8 characters from Aa-Zz, 0-9 and some special characters are only accepted.');
 define('LOGIN_FAILED', 'Login Failed! Invalid username and password.');
 define('REGISTRATION_FAILED', 'Registration Failed!');
+define('CATEGORY_OK', 'Added category successfully!');
+define('CATEGORY_FAILED', 'Adding category failed!');

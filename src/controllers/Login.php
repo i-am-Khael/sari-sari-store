@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Controllers;
 use Cores\View;
 use Cores\Helper;
-use Models\Login as LM;
+use Models\Auth;
 
 class Login {
 
@@ -17,19 +17,20 @@ class Login {
     return View::make('login', ['csrf_token' => $_SESSION['csrf_token'], 'loginFailed' => $error]);
   }
 
-  public function read(): string {
+  public function auth(): string {
 
     $username = Helper::sanitizeInput($_POST['username']);
     $password = Helper::sanitizeInput($_POST['password']);
 
-    if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token']))
-    return (string) $this->index(LOGIN_FAILED);
+    if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+      return (string) $this->index(LOGIN_FAILED);
+    }
 
-    $result = LM::getUser([$username]);
+    $result = Auth::getUser([$username]);
 
     if (!$result) return (string) $this->index(LOGIN_FAILED);
 
-    $pass = password_verify($password, $result['password']);
+    $pass = password_verify( (string) $password, $result['password']);
 
     if ($pass && $result['role'] === 'common') {
 

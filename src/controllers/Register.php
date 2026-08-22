@@ -4,7 +4,7 @@
   namespace Controllers;
   use Cores\View;
   use Cores\Helper;
-  use Models\Register as RM;
+  use Models\Auth;
 
   class Register {
 
@@ -33,7 +33,8 @@
 
       if(!empty($errors)) return $this->index($errors);
 
-      $result = RM::store([$firstName, $lastName, $email['value'], $username['value'], $password['value']]);
+      $result = Auth::storeUser([$firstName, $lastName, $email['value'], $username['value'], $password['value']]);
+
       if ($result) header('Location: login');
 
     }

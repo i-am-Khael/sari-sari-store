@@ -2,6 +2,8 @@
   declare(strict_types=1);
   namespace Traits;
 
+use PDOException;
+
   trait Database {
 
     private static ?\PDO $conn = null;

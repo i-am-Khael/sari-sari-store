@@ -21,7 +21,8 @@
     }
 
     public function categories(): View {
-      return View::make('/admin/categories', ['csrf_token' => $_SESSION['csrf_token']]);
+      $data = Categories::getAll();
+      return View::make('/admin/categories', ['csrf_token' => $_SESSION['csrf_token'], 'data' => $data]);
     }
 
   }

@@ -24,10 +24,4 @@
       return (bool) self::read('SELECT email FROM users WHERE email = ?', [$email]);
     }
 
-
-    public static function verifyPassword(string $password): string {
-      return '';
-    }
-
-
   }

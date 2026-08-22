@@ -16,7 +16,7 @@
     ->get('/register', [Controllers\Register::class, 'index'])
     ->post('/register', [Controllers\Register::class, 'create'])
     ->get('/login', [Controllers\Login::class, 'index'])
-    ->post('/login', [Controllers\Login::class, 'read'])
+    ->post('/login', [Controllers\Login::class, 'auth'])
     ->get('/logout', [Controllers\Logout::class, 'index'])
 
     // commom user
